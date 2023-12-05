@@ -3,5 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "typeRoots": ["./types"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
   },
 }
