@@ -1,11 +1,17 @@
 import { Store } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
 import rootReducer, { RootState } from '../store/reducers';
 
-const store: Store<RootState> = configureStore({
+// import { createStore, applyMiddleware} from 'redux';
+import { logger, crashReporter} from '../store/middleware';
+
+// const middlewareEnhancer = applyMiddleware(logger, crashReporter)
+
+// const store = createStore(rootReducer, middlewareEnhancer)
+
+const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger, crashReporter),
 });
 
 export default store;
