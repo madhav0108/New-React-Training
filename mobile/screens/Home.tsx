@@ -12,12 +12,13 @@ import { HomeHeader } from '../components/HomeHeader';
 import { LotteriesSortingContextProvider } from '../context/lotteries-sorting-context';
 import { RootState } from '../store/reducers';
 import { getLotteries } from '../store/reducers/lotteryReducer';
+import { AppDispatch } from '../store/index';
 
 const Home = () => {
   const [selectedLotteries, setSelectedLotteries] = useState<Array<string>>([]);
   const navigation = useNavigation<AddLotteryNavigationProp>();
   const isFocused = useIsFocused();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { storedData: registeredLotteries } = useAsyncStorage();
 
   const lotteries = useSelector((state: RootState) => state.lotteries);

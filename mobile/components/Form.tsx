@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '../colors';
 import { RootState } from '../store/reducers';
 import { addLottery } from '../store/reducers/lotteryReducer';
+import { AppDispatch } from '../store/index';
 
 const lotterySchema = Yup.object({
   name: Yup.string().min(4).required(),
@@ -25,7 +26,7 @@ type Props = {
 };
 
 const LotteryForm = ({ onSubmit, onNavigateBack }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { error, loading } = useSelector((state: RootState) => state.lotteries);
 
   const handleClose = () => {

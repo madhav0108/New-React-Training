@@ -1,5 +1,7 @@
 import * as LotteriesService from '../../services/lottery';
 import { Lottery } from '../../types';
+import { Dispatch } from 'redux';
+import { AppDispatch } from '../index';
 
 // Action types
 export const GET_LOTTERIES_SUCCESS = 'GET_LOTTERIES_SUCCESS';
@@ -65,7 +67,7 @@ const addLotteryError = (error: Error) => ({
 });
 
 export const getLotteries = () => {
-  return async (dispatch) => {
+  return async (dispatch: AppDispatch) => {
     dispatch(getLotteriesStarted());
     try {
       const lotteriesData = await LotteriesService.getLottieries();
@@ -77,7 +79,7 @@ export const getLotteries = () => {
 };
 
 export const addLottery = (lotteryData: { name: string; prize: string }) => {
-  return async (dispatch) => {
+  return async (dispatch: AppDispatch) => {
     dispatch(addLotteryStarted());
     try {
       const res = await LotteriesService.createNewLottery(lotteryData);
