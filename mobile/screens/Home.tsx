@@ -57,7 +57,9 @@ const Home = () => {
           selectedLotteries={selectedLotteries}
           registeredLotteries={registeredLotteries || []}
         />
-        <FAB onPress={() => navigation.navigate('AddLottery')} />
+        {lotteries.isAddingNewLotteriesEnabled ? (
+          <FAB onPress={() => navigation.navigate('AddLottery')} />
+        ) : null}
       </View>
     </LotteriesSortingContextProvider>
   );
