@@ -4,7 +4,6 @@ import { useNavigation, useIsFocused } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import FAB from '../components/Fab';
 import Loader from '../components/Loader';
-import { AddLotteryNavigationProp } from '../types';
 import { colors } from '../colors';
 import LotteryList from '../components/LotteryList';
 import useAsyncStorage from '../hooks/useAsyncStorage';
@@ -13,10 +12,12 @@ import { LotteriesSortingContextProvider } from '../context/lotteries-sorting-co
 import { RootState } from '../store/reducers';
 import { getLotteries } from '../store/reducers/lotteryReducer';
 import { AppDispatch } from '../store/index';
+import { LotteriesNavigatorNavigationProp } from '../navigation/types';
 
 const Home = () => {
   const [selectedLotteries, setSelectedLotteries] = useState<Array<string>>([]);
-  const navigation = useNavigation<AddLotteryNavigationProp>();
+  const navigation =
+    useNavigation<LotteriesNavigatorNavigationProp<'AddLottery'>>();
   const isFocused = useIsFocused();
   const dispatch = useDispatch<AppDispatch>();
   const { storedData: registeredLotteries } = useAsyncStorage();

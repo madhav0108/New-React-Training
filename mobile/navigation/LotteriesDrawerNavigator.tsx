@@ -2,8 +2,9 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { LotteriesNavigator } from './LotteriesNavigator';
 import { LotteriesSettingsNavigator } from './LotteriesSettingsNavigator';
+import { LotteriesDrawerNavigatorParamList } from './types';
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<LotteriesDrawerNavigatorParamList>();
 
 export const LotteriesDrawerNavigator = () => (
   <Drawer.Navigator screenOptions={{ headerShown: false }}>

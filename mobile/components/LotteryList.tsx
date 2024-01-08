@@ -11,12 +11,13 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { LotteryDetailsNavigationProp, Lottery } from '../types';
+import { Lottery } from '../types';
 import { colors } from '../colors';
 import {
   LotteryListSortingOptions,
   useLotteriesSortingContext,
 } from '../context/lotteries-sorting-context';
+import { LotteriesNavigatorNavigationProp } from '../navigation/types';
 import SearchInput from './SearchInput';
 
 type Props = {
@@ -39,7 +40,7 @@ const LotteryList = ({
   const { width } = useWindowDimensions();
   const scrollY = useRef(new Animated.Value(0)).current;
 
-  const navigation = useNavigation<LotteryDetailsNavigationProp>();
+  const navigation = useNavigation<LotteriesNavigatorNavigationProp<'Home'>>();
 
   const { selectedSorting } = useLotteriesSortingContext();
 

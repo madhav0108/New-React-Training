@@ -3,14 +3,14 @@ import {
   NativeStackNavigationOptions,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../types';
 import Home from '../screens/Home';
 import AddLottery from '../screens/AddLottery';
 import { LotteryDetails } from '../screens/LotteryDetails';
 import RegisterModal from '../screens/RegisterModal';
 import { DrawerNavigationButton } from './DrawerNavigationButton';
+import { LotteriesNavigatorParamList } from './types';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<LotteriesNavigatorParamList>();
 
 const options: NativeStackNavigationOptions = {
   title: '',

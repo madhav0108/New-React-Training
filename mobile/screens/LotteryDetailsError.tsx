@@ -3,9 +3,11 @@ import { StyleSheet, View, Text, Button } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '../colors';
+import { LotteriesNavigatorNavigationProp } from '../navigation/types';
 
 export const LotteryDetailsError = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<LotteriesNavigatorNavigationProp<'LotteryDetails'>>();
   return (
     <View style={styles.container}>
       <Ionicons name="warning-outline" size={48} color="black" />
