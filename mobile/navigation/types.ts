@@ -6,13 +6,13 @@ import {
     DrawerNavigationProp,
     DrawerScreenProps,
   } from '@react-navigation/drawer';
-  import { RouteProp } from '@react-navigation/native';
+  import { NavigatorScreenParams, RouteProp } from '@react-navigation/native';
   import { StackNavigationProp, StackScreenProps } from '@react-navigation/stack';
   
-  /* ----- ROOT NAVIGATOR ----- */
+  /* ROOT NAVIGATOR */
   
   export type RootNavigatorParamList = {
-    LotteriesTab: undefined;
+    LotteriesTab: NavigatorScreenParams<LotteriesDrawerNavigatorParamList>;
     About: undefined;
   };
   
@@ -25,7 +25,7 @@ import {
   export type RootNavigatorRouteProp<T extends RootNavigatorScreensNames> =
     RouteProp<RootNavigatorParamList, T>;
   
-  /* ----- LOTTERIES NAVIGATOR ----- */
+  /* LOTTERIES NAVIGATOR */
   
   export type LotteriesNavigatorParamList = {
     Home: undefined;
@@ -46,11 +46,11 @@ import {
     T extends LotteriesNavigatorScreensNames,
   > = RouteProp<LotteriesNavigatorParamList, T>;
   
-  /* ----- LOTTERIES DRAWER NAVIGATOR ----- */
+  /* LOTTERIES DRAWER NAVIGATOR */
   
   export type LotteriesDrawerNavigatorParamList = {
-    LotteriesStack: undefined;
-    LotteriesSettingsStack: undefined;
+    LotteriesStack: NavigatorScreenParams<LotteriesNavigatorParamList>;
+    LotteriesSettingsStack: NavigatorScreenParams<LotteriesSettingsNavigatorParamList>;
   };
   
   type LotteriesDrawerNavigatorScreensNames =
@@ -66,7 +66,7 @@ import {
     T extends LotteriesDrawerNavigatorScreensNames,
   > = RouteProp<LotteriesDrawerNavigatorParamList, T>;
   
-  /* ----- LOTTERIES SETTINGS NAVIGATOR ----- */
+  /* LOTTERIES SETTINGS NAVIGATOR */
   
   export type LotteriesSettingsNavigatorParamList = {
     LotteriesSettings: undefined;
